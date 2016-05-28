@@ -20,5 +20,13 @@ build
 # other
 eclipse
 run
-*.txt
 Build.lnk
+
+# Annoying text files
+README.txt
+CREDITS-fml.txt
+LICENSE-fml.txt
+MinecraftForge*
+MinecraftForge*
+Paulscode*
+*changelog.txt
