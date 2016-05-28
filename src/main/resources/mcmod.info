@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dubzhud",
+  "name": "DubzHud",
+  "description": "Hud mod for super cool stuff yo!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["pandubz"],
+  "credits": "All the red pandas in the world, for being so awesome",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
