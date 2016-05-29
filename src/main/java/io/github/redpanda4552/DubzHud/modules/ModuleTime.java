@@ -30,7 +30,6 @@ public class ModuleTime extends AbstractModule {
         super(name, position);
     }
 
-    // TODO Time is going through 24 instead of resetting to 0 after 23:59... why?
     @Override
     public String getText() {
         String minuteStr = "";
@@ -56,7 +55,7 @@ public class ModuleTime extends AbstractModule {
 
         hours += 6;
 
-        if (hours > 24)
+        if (hours >= 24)
         {
             hours -= 24;
         }
