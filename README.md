@@ -10,6 +10,8 @@ DubzHud displays Modules in a line across the top of the screen. Modules can be 
 DubzHud displays Notifications under the Modules line. Currently, 5 notifications are implemented: melee strength indicator, and a low durability indicator for each armor piece. The melee strength Notification may be turned off in the config file, and its colors can be changed as well.
 
 ## Installation ##
+[DubzHud Releases Page] (https://github.com/RedPanda4552/DubzHud/releases)
+
 DubzHud is a Forge mod, and therefore requires you have Forge installed. Don't have Forge installed? Head over to the [Minecraft Forge Files page] (http://files.minecraftforge.net) and pick the installer that matches the Minecraft version you have.
 
 ### Picking the right file from Forge ###
