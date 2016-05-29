@@ -31,7 +31,7 @@ public abstract class AbstractNotification {
     protected Minecraft mc;
     
     private String name, text;
-    private boolean enabled;
+    private boolean enabled = false;
     private int color;
     
     public AbstractNotification(String name, int color) {
@@ -55,6 +55,20 @@ public abstract class AbstractNotification {
     
     public void setColor(int color) {
         this.color = color;
+    }
+    
+    /**
+     * Enable this notification so that it will appear on screen.
+     */
+    public void enable() {
+        enabled = true;
+    }
+    
+    /**
+     * Disable this notification so that it will not appear on screen.
+     */
+    public void disable() {
+        enabled = false;
     }
     
     public void toggle() {

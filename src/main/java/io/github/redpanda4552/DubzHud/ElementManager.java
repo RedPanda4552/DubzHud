@@ -34,6 +34,10 @@ import io.github.redpanda4552.DubzHud.modules.ModulePosition;
 import io.github.redpanda4552.DubzHud.modules.ModuleTPS;
 import io.github.redpanda4552.DubzHud.modules.ModuleTime;
 import io.github.redpanda4552.DubzHud.notifications.AbstractNotification;
+import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityBoot;
+import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityChestplate;
+import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityHelmet;
+import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityLegging;
 import io.github.redpanda4552.DubzHud.notifications.NotificationSwingCooldown;
 import io.github.redpanda4552.DubzHud.toggles.AbstractToggle;
 import net.minecraftforge.common.config.Configuration;
@@ -93,16 +97,38 @@ public class ElementManager {
         modules = reorderModules(modules);
         
         // Notifications
-        int j = 0, k = 0, l = 0;
-        boolean b = false;
+        int j = 0, k = 0, l = 0, m = 0;
+        boolean b = false, c = false, d = false, e = false, f = false;
         
         b = config.getBoolean("swing-cooldown", "notifications", true, "Determines if the Swing Cooldown meter should display or not.");
         j = config.getInt("swing-cooldown-color-low", "notifications", 0xff0000, 0, Integer.MAX_VALUE, "The color of the Swing Cooldown meter when it is below 50%.");
         k = config.getInt("swing-cooldown-color-medium", "notifications", 0xffdd00, 0, Integer.MAX_VALUE, "The color of the Swing Cooldown meter when it is above 50%, but not full.");
         l = config.getInt("swing-cooldown-color-full", "notifications", 0x00ff00, 0, Integer.MAX_VALUE, "The color of the Swing Cooldown meter when it is full.");
         
+        c = config.getBoolean("helmet-durability", "notifications", true, "Whether or not the helmet durability warning should show when helmet durability is below 12.5%.");
+        d = config.getBoolean("chestplate-durability", "notifications", true, "Whether or not the chestplate durability warning should show when chestplate durability is below 12.5%.");
+        e = config.getBoolean("legging-durability", "notifications", true, "Whether or not the legging durability warning should show when legging durability is below 12.5%.");
+        f = config.getBoolean("boot-durability", "notifications", true, "Whether or not the boot durability warning should show when boot durability is below 12.5%.");
+        m = config.getInt("durability-color", "notifications", 0xffdd00, 0, Integer.MAX_VALUE, "The color of the low armor durability notifications.");
+        
         if (b) {
             notifications.add(new NotificationSwingCooldown("SwingCooldown", j, k, l));
+        }
+        
+        if (c) {
+            notifications.add(new NotificationDurabilityHelmet("DurabilityHelmet", m));
+        }
+        
+        if (d) {
+            notifications.add(new NotificationDurabilityChestplate("DurabilityChestplate", m));
+        }
+        
+        if (e) {
+            notifications.add(new NotificationDurabilityLegging("DurabilityLegging", m));
+        }
+        
+        if (f) {
+            notifications.add(new NotificationDurabilityBoot("DurabilityBoot", m));
         }
         
         // Toggles
