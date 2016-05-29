@@ -1,7 +1,7 @@
 # DubzHud for Minecraft #
 
 ## Introduction ##
-DubzHud is a Forge mod for Minecraft that adds HUD components for convenience. HUD components are categorized into two types: *Modules* and *Notifications*.
+DubzHud is a Forge mod for Minecraft that adds HUD components for convenience. HUD components are categorized into two types: **Modules** and **Notifications**.
 
 ### Modules ###
 DubzHud displays Modules in a line across the top of the screen. Modules can be reordered or removed by manually changing the DubzHud configuration file (.minecraft/config/dubzhud.cfg). Modules include: FPS, TPS (estimated), light levels (sky light and block light), entity count (rendered and loaded), coordinates, and world time.
