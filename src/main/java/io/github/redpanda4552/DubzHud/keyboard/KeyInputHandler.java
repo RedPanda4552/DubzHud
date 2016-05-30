@@ -29,6 +29,7 @@ import io.github.redpanda4552.DubzHud.DubzHud;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
+// Until toggles are implemented, there is no use for this.
 public class KeyInputHandler {
 
     
@@ -36,10 +37,10 @@ public class KeyInputHandler {
         
     }
     
-    @SubscribeEvent
-    public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (KeyBindings.binding.isPressed()) {
-            ElementManager.getToggle("Binding").toggle();
-        }
-    }
+//    @SubscribeEvent
+//    public void onKeyInput(InputEvent.KeyInputEvent event) {
+//        if (KeyBindings.binding.isPressed()) {
+//            ElementManager.getToggle("Binding").toggle();
+//        }
+//    }
 }

@@ -64,7 +64,7 @@ public class DubzHud {
     public void init(FMLInitializationEvent event){
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new KeyInputHandler(this));
-        KeyBindings.init();
+//        KeyBindings.init();
         moduleText = new String("");
         log.info("Initialized and ready to go!");
     }
