@@ -69,12 +69,17 @@ public class DubzHud {
         log.info("Initialized and ready to go!");
     }
     
+    /**
+     * Called with every frame, this effectively runs the mod.
+     * Calls for Modules, Notifications and Toggles to update themselves per tick,
+     * and calls for these to be drawn per frame.
+     */
     @SubscribeEvent
     public void renderHUD(RenderGameOverlayEvent event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT && !mc.gameSettings.showDebugInfo) {
             curTicks = mc.theWorld.getWorldTime();
             
-            // Update HUD Components
+            // Update HUD Components; as to save CPU time we will update these per tick, not per frame.
             if (curTicks - lastTicks >= 1) {
                 updateModules();
                 updateNotifications();
@@ -93,12 +98,18 @@ public class DubzHud {
         }
     }
     
+    /**
+     * Draws Modules to the screen; called per frame.
+     */
     private void drawModules() {
         Gui.drawRect(1, 1, mc.fontRendererObj.getStringWidth(moduleText) - 1, 10, -1873784752);
         mc.fontRendererObj.drawString(moduleText, 2, textTop, 0x00ddff);
         textTop += 10;
     }
     
+    /**
+     * Updates Module data; called per tick.
+     */
     private void updateModules() {
         StringBuilder sb = new StringBuilder("[DubzHud v2.0] ");
         for (AbstractModule module : ElementManager.getAllModules()) {
@@ -107,6 +118,9 @@ public class DubzHud {
         moduleText = sb.toString();
     }
     
+    /**
+     * Draws Notifications to the screen; called per frame.
+     */
     private void drawNotifications() {
         for (AbstractNotification notification : ElementManager.getAllNotifications()) {
             if (notification.enabled()) {
@@ -116,16 +130,25 @@ public class DubzHud {
         }
     }
     
+    /**
+     * Updates Notification data; called per tick.
+     */
     private void updateNotifications() {
         for (AbstractNotification notification : ElementManager.getAllNotifications()) {
             notification.updateText();
         }
     }
     
+    /**
+     * Not implemented yet; will draw Toggles to the screen; called per frame.
+     */
     private void drawToggles() {
         
     }
     
+    /**
+     * Not implemented yet; will update Toggle data; called per tick.
+     */
     private void updateToggles() {
         
     }
