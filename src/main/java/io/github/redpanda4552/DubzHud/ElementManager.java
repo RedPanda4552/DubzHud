@@ -48,6 +48,9 @@ public class ElementManager {
     private static LinkedHashSet<AbstractNotification> notifications = new LinkedHashSet<AbstractNotification>();
     private static LinkedHashSet<AbstractToggle> toggles = new LinkedHashSet<AbstractToggle>();
     
+    /**
+     * Reconstructs the above LinkedHashSets to match the current contents of the config file.
+     */
     public static void readFromConfiguration(Configuration config) {
         modules.clear();
         notifications.clear();
@@ -136,6 +139,10 @@ public class ElementManager {
         config.save();
     }
     
+    /**
+     * Reorders the Modules LinkedHashSet so that it is ordered by the module's position values,
+     * instead of insertion order.
+     */
     private static LinkedHashSet<AbstractModule> reorderModules(LinkedHashSet<AbstractModule> unorderedModules) {
         LinkedHashSet<AbstractModule> orderedModules = new LinkedHashSet<AbstractModule>();
         for (int i = 0; i < unorderedModules.size(); i++) {
@@ -149,6 +156,9 @@ public class ElementManager {
         return orderedModules;
     }
     
+    /**
+     * Get a Module from the currently active Modules by name.
+     */
     public static AbstractModule getModule(String name) {
         for (AbstractModule module : modules) {
             if (module.getName().equals(name)) {
@@ -159,10 +169,16 @@ public class ElementManager {
         return null;
     }
     
+    /**
+     * Get a LinkedHashSet containing every active Module, sorted in proper order.
+     */
     public static LinkedHashSet<AbstractModule> getAllModules() {
         return modules;
     }
     
+    /**
+     * Get a Notification from the currently active Notifications by name.
+     */
     public static AbstractNotification getNotification(String name) {
         for (AbstractNotification notification : notifications) {
             if (notification.getName().equals(name)) {
@@ -173,10 +189,16 @@ public class ElementManager {
         return null;
     }
     
+    /**
+     * Get a LinkedHashSet containing every active Notification, sorted in proper order.
+     */
     public static LinkedHashSet<AbstractNotification> getAllNotifications() {
         return notifications;
     }
     
+    /**
+     * Get a Toggle from the currently active Toggles by name.
+     */
     public static AbstractToggle getToggle(String name) {
         for (AbstractToggle toggle : toggles) {
             if (toggle.getName().equals(name)) {
@@ -187,6 +209,9 @@ public class ElementManager {
         return null;
     }
     
+    /**
+     * Get a LinkedHashSet containing every active Toggle, sorted in proper order.
+     */
     public LinkedHashSet<AbstractToggle> getAllToggles() {
         return toggles;
     }
