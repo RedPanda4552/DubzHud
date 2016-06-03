@@ -45,7 +45,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class DubzHud {
 
     public static final String MODID = "dubzhud";
-    public static final String VERSION = "2.0";
+    public static final String VERSION = "2.0.1";
     private Logger log;
     
     private static final Minecraft mc = Minecraft.getMinecraft();
