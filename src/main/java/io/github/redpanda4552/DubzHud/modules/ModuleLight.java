@@ -37,8 +37,16 @@ public class ModuleLight extends AbstractModule {
     @Override
     public String getText() {
         BlockPos blockPos = new BlockPos(mc.thePlayer.posX, mc.thePlayer.getEntityBoundingBox().minY, mc.thePlayer.posZ);
-        Chunk chunk = mc.theWorld.getChunkFromBlockCoords(blockPos);
-        return "[Light (S/B): " + chunk.getLightFor(EnumSkyBlock.SKY, blockPos) + "/" + chunk.getLightFor(EnumSkyBlock.BLOCK, blockPos) + "] ";
+        Chunk chunk = null;
+        int sky = 0, block = 0;
+        
+        if (blockPos.getY() < 256) {
+            chunk = mc.theWorld.getChunkFromBlockCoords(blockPos);
+            sky = chunk.getLightFor(EnumSkyBlock.SKY, blockPos);
+            block = chunk.getLightFor(EnumSkyBlock.BLOCK, blockPos);
+        }
+        
+        return "[Light (S/B): " + sky + "/" + block + "] ";
     }
 
 }
