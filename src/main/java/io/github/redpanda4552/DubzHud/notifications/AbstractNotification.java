@@ -80,7 +80,7 @@ public abstract class AbstractNotification {
     }
     
     /**
-     * This should call {@link #updateText(String)}; it is simply a middle man.
+     * Compose the String to display for this Notification and pass it on with {@link #updateText(String)}.
      */
     public abstract void updateText();
     
