@@ -38,6 +38,7 @@ import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityBoot;
 import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityChestplate;
 import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityHelmet;
 import io.github.redpanda4552.DubzHud.notifications.NotificationDurabilityLegging;
+import io.github.redpanda4552.DubzHud.notifications.NotificationSaturation;
 import io.github.redpanda4552.DubzHud.notifications.NotificationSwingCooldown;
 import io.github.redpanda4552.DubzHud.toggles.AbstractToggle;
 import net.minecraftforge.common.config.Configuration;
@@ -101,7 +102,7 @@ public class ElementManager {
         
         // Notifications
         int j = 0, k = 0, l = 0, m = 0;
-        boolean b = false, c = false, d = false, e = false, f = false;
+        boolean b = false, c = false, d = false, e = false, f = false, g = false;
         
         b = config.getBoolean("swing-cooldown", "notifications", true, "Determines if the Swing Cooldown meter should display or not.");
         j = config.getInt("swing-cooldown-color-low", "notifications", 0xff0000, 0, Integer.MAX_VALUE, "The color of the Swing Cooldown meter when it is below 50%.");
@@ -113,6 +114,8 @@ public class ElementManager {
         e = config.getBoolean("legging-durability", "notifications", true, "Whether or not the legging durability warning should show when legging durability is below 12.5%.");
         f = config.getBoolean("boot-durability", "notifications", true, "Whether or not the boot durability warning should show when boot durability is below 12.5%.");
         m = config.getInt("durability-color", "notifications", 0xffdd00, 0, Integer.MAX_VALUE, "The color of the low armor durability notifications.");
+
+        g = config.getBoolean("saturation-level", "notifications", true, "Determines if the Saturation Level meter should display or not");
         
         if (b) {
             notifications.add(new NotificationSwingCooldown("SwingCooldown", j, k, l));
@@ -132,6 +135,10 @@ public class ElementManager {
         
         if (f) {
             notifications.add(new NotificationDurabilityBoot("DurabilityBoot", m));
+        }
+        
+        if (g) {
+            notifications.add(new NotificationSaturation("Saturation", j, k, l));
         }
         
         // Toggles
