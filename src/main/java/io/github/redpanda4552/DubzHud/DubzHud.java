@@ -116,7 +116,7 @@ public class DubzHud {
      * Updates Module data; called per tick.
      */
     private void updateModules() {
-        StringBuilder sb = new StringBuilder("[DubzHud v2.0.1] ");
+        StringBuilder sb = new StringBuilder("[DubzHud v" + VERSION + "] ");
         for (AbstractModule module : ElementManager.getAllModules()) {
             sb.append(module.getText());
         }
