@@ -24,10 +24,10 @@
 
 package io.github.redpanda4552.DubzHud.keyboard;
 
-import org.lwjgl.input.Keyboard;
+//import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
+//import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 // Until toggles are implemented, there is no use for this.
 public class KeyBindings {
