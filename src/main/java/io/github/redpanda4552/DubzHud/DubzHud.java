@@ -26,7 +26,6 @@ package io.github.redpanda4552.DubzHud;
 
 import org.apache.logging.log4j.Logger;
 
-import io.github.redpanda4552.DubzHud.keyboard.KeyBindings;
 import io.github.redpanda4552.DubzHud.keyboard.KeyInputHandler;
 import io.github.redpanda4552.DubzHud.modules.AbstractModule;
 import io.github.redpanda4552.DubzHud.notifications.AbstractNotification;
@@ -41,11 +40,14 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = DubzHud.MODID, version = DubzHud.VERSION)
+@Mod(modid = DubzHud.MODID,
+     version = DubzHud.VERSION/*,
+     guiFactory = "io.github.redpanda4552.DubzHud.DubzHudGuiFactory"*/
+)
 public class DubzHud {
 
     public static final String MODID = "dubzhud";
-    public static final String VERSION = "2.0.1";
+    public static final String VERSION = "2.0.2";
     private Logger log;
     
     private static final Minecraft mc = Minecraft.getMinecraft();
@@ -54,10 +56,13 @@ public class DubzHud {
     private long lastTicks = 0, curTicks = 0;
     private int textTop = 2;
     
+    public static Configuration config = null;
+    
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         log = event.getModLog();
-        ElementManager.readFromConfiguration(new Configuration(event.getSuggestedConfigurationFile()));
+        config = new Configuration(event.getSuggestedConfigurationFile());
+        ElementManager.readFromConfiguration(config);
     }
     
     @EventHandler
