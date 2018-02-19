@@ -37,7 +37,7 @@ public abstract class AbstractNotificationDurability extends AbstractNotificatio
      * Composes the string that displays as the low durability notification.
      */
     public String getDurabilityString(int index) {
-        ItemStack stack = mc.thePlayer.inventory.armorInventory[index];
+        ItemStack stack = mc.player.inventory.armorInventory.get(index);
         ItemArmor armor = null;
         
         if (stack != null && stack.getItem() instanceof ItemArmor) {

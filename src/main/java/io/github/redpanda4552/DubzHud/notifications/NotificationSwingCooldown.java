@@ -54,7 +54,7 @@ public class NotificationSwingCooldown extends AbstractNotification {
     
     @Override
     public void updateText() {
-        cooldown = (float)Math.floor(mc.thePlayer.getCooledAttackStrength(0) * 100);
+        cooldown = (float)Math.floor(mc.player.getCooledAttackStrength(0) * 100);
         updateText("[Swing Power: " + cooldown + "%]");
     }
 }

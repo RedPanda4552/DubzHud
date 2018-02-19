@@ -37,7 +37,7 @@ public class ModuleTPS extends AbstractModule {
 
     @Override
     public String getText() {
-        long time = mc.theWorld.getWorldTime();
+        long time = mc.world.getWorldTime();
 
         if (Minecraft.getSystemTime() - lastTime >= 1000)
         {

@@ -30,7 +30,7 @@ public class NotificationSaturation extends AbstractNotification {
 
     @Override
     public void updateText() {
-        saturation = (float)Math.floor(mc.thePlayer.getFoodStats().getSaturationLevel() * 5);
+        saturation = (float) Math.floor(mc.player.getFoodStats().getSaturationLevel() * 5);
         updateText("[Saturation Level: " + saturation + "%]");
     }
 

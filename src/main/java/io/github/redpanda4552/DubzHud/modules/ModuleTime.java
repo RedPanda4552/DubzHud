@@ -33,7 +33,7 @@ public class ModuleTime extends AbstractModule {
     @Override
     public String getText() {
         String minuteStr = "";
-        long time = mc.theWorld.getWorldTime();
+        long time = mc.world.getWorldTime();
         int thisDayTicks = (int)(time - (Math.floor(time / 24000) * 24000));
         int totalMinutes = (int)(thisDayTicks / 16.666666666666666666666666666667);
         int hours = (int) Math.floor(thisDayTicks / 1000);
