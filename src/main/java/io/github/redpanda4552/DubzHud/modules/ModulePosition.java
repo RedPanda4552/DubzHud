@@ -32,7 +32,7 @@ public class ModulePosition extends AbstractModule {
 
     @Override
     public String getText() {
-        return "[Position: x:" + (int) Math.floor(Double.valueOf(mc.player.posX)) + " y:" + (int) Math.floor(Double.valueOf(mc.player.getEntityBoundingBox().minY)) + " z:" + (int) Math.floor(Double.valueOf(mc.player.posZ)) + "] ";
+        return "[Position: x:" + (int)Math.floor(Double.valueOf(mc.thePlayer.posX)) + " y:" + (int)Math.floor(Double.valueOf(mc.thePlayer.getEntityBoundingBox().minY)) + " z:" + (int)Math.floor(Double.valueOf(mc.thePlayer.posZ)) + "] ";
     }
 
 }

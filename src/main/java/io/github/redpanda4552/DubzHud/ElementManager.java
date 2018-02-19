@@ -31,7 +31,6 @@ import io.github.redpanda4552.DubzHud.modules.ModuleEntities;
 import io.github.redpanda4552.DubzHud.modules.ModuleFPS;
 import io.github.redpanda4552.DubzHud.modules.ModuleLight;
 import io.github.redpanda4552.DubzHud.modules.ModulePosition;
-import io.github.redpanda4552.DubzHud.modules.ModuleSlime;
 import io.github.redpanda4552.DubzHud.modules.ModuleTPS;
 import io.github.redpanda4552.DubzHud.modules.ModuleTime;
 import io.github.redpanda4552.DubzHud.notifications.AbstractNotification;
@@ -63,46 +62,40 @@ public class ElementManager {
         // Modules
         int i = 0;
         
-        i = config.getInt("fps", "modules", 0, -1, 6, "Determines position of FPS meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("fps", "modules", 0, -1, 5, "Determines position of FPS meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModuleFPS("FPS", i));
         }
         
-        i = config.getInt("tps", "modules", 1, -1, 6, "Determines position of TPS meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("tps", "modules", 1, -1, 5, "Determines position of TPS meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModuleTPS("TPS", i));
         }
         
-        i = config.getInt("light", "modules", 2, -1, 6, "Determines position of light meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("light", "modules", 2, -1, 5, "Determines position of light meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModuleLight("Light", i));
         }
         
-        i = config.getInt("entities", "modules", 3, -1, 6, "Determines position of entites meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("entities", "modules", 3, -1, 5, "Determines position of entites meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModuleEntities("Entities", i));
         }
         
-        i = config.getInt("position", "modules", 4, -1, 6, "Determines position of position meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("position", "modules", 4, -1, 5, "Determines position of position meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModulePosition("Position", i));
         }
         
-        i = config.getInt("time", "modules", 5, -1, 6, "Determines position of time meter in HUD. -1 disables. Range: 0 to 5.");
+        i = config.getInt("time", "modules", 5, -1, 5, "Determines position of position meter in HUD. -1 disables. Range: 0 to 5.");
         
         if (i != -1) {
             modules.add(new ModuleTime("Time", i));
-        }
-        
-        i = config.getInt("slime", "modules", 6, -1, 6, "Determines position of slime meter in HUD. -1 disables. Range: 0 to 6.");
-        
-        if (i != -1) {
-            modules.add(new ModuleSlime("Slime", i));
         }
         
         modules = reorderModules(modules);
@@ -128,10 +121,6 @@ public class ElementManager {
             notifications.add(new NotificationSwingCooldown("SwingCooldown", j, k, l));
         }
         
-        if (g) {
-            notifications.add(new NotificationSaturation("Saturation", j, k, l));
-        }
-        
         if (c) {
             notifications.add(new NotificationDurabilityHelmet("DurabilityHelmet", m));
         }
@@ -146,6 +135,10 @@ public class ElementManager {
         
         if (f) {
             notifications.add(new NotificationDurabilityBoot("DurabilityBoot", m));
+        }
+        
+        if (g) {
+            notifications.add(new NotificationSaturation("Saturation", j, k, l));
         }
         
         // Toggles
